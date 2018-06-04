@@ -49,7 +49,7 @@ int main() {
 
         /* Read BMP280 Temperature and Pressure information */
         printf("BMP280   [temperature]:            %d°C\n", (int)bmp280.getTemperature());
-        printf("BMP280   [pressure]:               %dPa\n", (int)bmp280.getPressure());
+        printf("BMP280   [pressure]:               %dhPa\n", (int)bmp280.getPressure());
 
         /* Read HTS221 Temperature and Humidity information */
         float temp, humi;
@@ -60,9 +60,9 @@ int main() {
 
         /* Read LIS3MDL Magnetometer information */
         lis3mdl.GetAxes((AxesRaw_TypeDef *)&MAG_Value);
-        printf("LIS3MDL  [Magnetometer/mGauss]:     X: %d, Y: %d, Z: %d\r\n", MAG_Value.AXIS_X,
-                                                                   MAG_Value.AXIS_Y,
-                                                                   MAG_Value.AXIS_Z);
+        printf("LIS3MDL  [Magnetometer/mGauss]:     X: %d, Y: %d, Z: %d\r\n", (int)MAG_Value.AXIS_X,
+                                                                              (int)MAG_Value.AXIS_Y,
+                                                                              (int)MAG_Value.AXIS_Z);
 
         /* Read VEML6030 ambient light information */
         uint16_t als = veml6030.getALS() ;
@@ -72,17 +72,17 @@ int main() {
 
         /* Read LSM6DSL 3D digital accelerometer and 3D digital gyroscope information */
         acc_gyro.get_x_axes(axes);
-        printf("LSM6DSL  [acc/mg]:              %6ld, %6ld, %6ld\r\n", axes[0], axes[1], axes[2]);
+        printf("LSM6DSL  [acc/mg]:                 %d, %d, %d\r\n", (int)axes[0], (int)axes[1], (int)axes[2]);
 
         acc_gyro.get_g_axes(axes);
-        printf("LSM6DSL  [gyro/mdps]:           %6ld, %6ld, %6ld\r\n", axes[0], axes[1], axes[2]);
+        printf("LSM6DSL  [gyro/mdps]:              %d, %d, %d\r\n", (int)axes[0], (int)axes[1], (int)axes[2]);
 
         /* Read VL53L0X Time-of-Flight ranging information */
         uint32_t distance;
         int status = range.get_distance(&distance);
 
         if (status == VL53L0X_ERROR_NONE) {
-            printf("VL53L0X  [mm]:                  %6ld\r\n", distance);
+            printf("VL53L0X  [mm]:                    %d\r\n", (int)distance);
         } else {
             printf("VL53L0X  [mm]:                     --\r\n");
         }

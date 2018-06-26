@@ -60,16 +60,16 @@ Elf2Bin: mbed-gapuino-sensorboard
 +-----------------+-------+-------+------+
 | Module          | .text | .data | .bss |
 +-----------------+-------+-------+------+
-| BUILD/GAP8      | 42410 |  1329 | 7795 |
-| [fill]          |     2 |     7 |   21 |
-| [lib]/c.a       | 29868 |  2460 |   60 |
-| [lib]/gcc.a     | 21036 |     0 |    0 |
+| BUILD/GAP8      | 43182 |  1077 | 2655 |
+| [fill]          |     2 |     7 |   17 |
+| [lib]/c.a       |  7446 |  2096 |   60 |
+| [lib]/gcc.a     | 12310 |     0 |    0 |
 | [lib]/m.a       |  4460 |     0 |    0 |
 | mbed-os/targets |   288 |     4 |   28 |
-| Subtotals       | 98064 |  3800 | 7904 |
+| Subtotals       | 67688 |  3184 | 2760 |
 +-----------------+-------+-------+------+
-Total Static RAM memory (data + bss): 11704 bytes
-Total Flash memory (text + data): 101864 bytes
+Total Static RAM memory (data + bss): 5944 bytes
+Total Flash memory (text + data): 70872 bytes
 
 Image: ./BUILD/GAP8/GCC_RISCV/mbed-gapuino-sensorboard.bin
 ```

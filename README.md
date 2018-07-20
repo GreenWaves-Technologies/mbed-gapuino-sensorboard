@@ -43,7 +43,17 @@ cd mbed-gapuino-sensorboard
 mbed deploy
 mbed config -G GCC_RISCV_PATH "/usr/lib/gap_riscv_toolchain/bin"
 ```
-Then, please change `DEFAULT_SLAVE_ADDRESS` from `(0x77 << 1)` to `(0x76 << 1)` in ./BMP280/BMP280.h according to gapuino sensor board connection
+
+If you find that the mbed-os git verison size (which includes all git history about 400 MB) is too large to download,
+you can download [gwt-mbed-os-5.9.3](https://github.com/GreenWaves-Technologies/mbed-os/releases/tag/gwt-mbed-os-5.9.3) or :
+
+```
+wget https://codeload.github.com/GreenWaves-Technologies/mbed-os/zip/gwt-mbed-os-5.9.3
+mv gwt-mbed-os-5.9.3 gwt-mbed-os-5.9.3.zip
+unzip -qq gwt-mbed-os-5.9.3.zip
+mv mbed-os-gwt-mbed-os-5.9.3 mbed-os
+```
+which is only 20 MB, then uncompress it and rename it to `mbed-os` in your directory.
 
 ### Now compile
 
@@ -60,16 +70,16 @@ Elf2Bin: mbed-gapuino-sensorboard
 +-----------------+-------+-------+------+
 | Module          | .text | .data | .bss |
 +-----------------+-------+-------+------+
-| BUILD/GAP8      | 43182 |  1077 | 2655 |
+| BUILD/GAP8      | 43024 |  1077 | 2471 |
 | [fill]          |     2 |     7 |   17 |
 | [lib]/c.a       |  7446 |  2096 |   60 |
 | [lib]/gcc.a     | 12310 |     0 |    0 |
 | [lib]/m.a       |  4460 |     0 |    0 |
 | mbed-os/targets |   288 |     4 |   28 |
-| Subtotals       | 67688 |  3184 | 2760 |
+| Subtotals       | 67530 |  3184 | 2576 |
 +-----------------+-------+-------+------+
-Total Static RAM memory (data + bss): 5944 bytes
-Total Flash memory (text + data): 70872 bytes
+Total Static RAM memory (data + bss): 5760 bytes
+Total Flash memory (text + data): 70714 bytes
 
 Image: ./BUILD/GAP8/GCC_RISCV/mbed-gapuino-sensorboard.bin
 ```
